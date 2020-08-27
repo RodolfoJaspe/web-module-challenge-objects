@@ -11,16 +11,17 @@ const breakfastBurrito = {
 /* Task 1a: write a function to return more menu items with the same format as the items above. */
 
 function createMenuItem(name, price, category) {
-  this.name = name;
-  this.price = price;
-  this.category = category;
+  let newItem = { name: name, price: price, category: category };
+
+  return newItem;
 }
 
 /* Task 1b: use your function to create 3 more menu items. You may add any items to the menu that you'd like */
-let taco = new createMenuItem("Carnitas", 5, "Lunch");
-let pizza = new createMenuItem("Pizza", 10, "Lunch");
-let fries = new createMenuItem("Fries", 5, "Lunch");
+let taco = createMenuItem("Carnitas", 5, "Lunch");
+let pizza = createMenuItem("Pizza", 10, "Lunch");
+let fries = createMenuItem("Fries", 5, "Lunch");
 
+console.log(burger);
 console.log(pizza);
 console.log(taco);
 console.log(fries);
@@ -34,7 +35,17 @@ Your method should accept:
 and should return a number. 
 
 For example, burger.discount("teacher") would return 13.5 and burger.discount("public") would return 16.2*/
-
+burger.discountedPrice = function (customer) {
+  if (customer === "teacher" || customer === "student") {
+    return this.price * 0.75;
+  } else if (customer === "public") {
+    return this.price * 0.9;
+  } else {
+    return this.price;
+  }
+};
+console.log(burger.discountedPrice("teacher"));
+console.log(burger.discountedPrice("public"));
 ///////////////Reviews (MVP)///////////////////
 
 const reviews = [
